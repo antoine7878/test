@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ project_name }}</h1>
+<button hx-get="/partials/time" hx-target="#time">What time is it?</button>
+<p id="time"></p>
+{% endblock %}
