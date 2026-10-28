@@ -1,0 +1,11 @@
+.git
+.venv
+.cache
+.coverage
+.pytest_cache
+.ruff_cache
+htmlcov
+__pycache__
+*.pyc
+app.egg-info
+.env
