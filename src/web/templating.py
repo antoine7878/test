@@ -6,7 +6,7 @@ from fastapi.templating import Jinja2Templates
 
 from src.core.config import settings
 
-TEMPLATES_DIR = Path(__file__).parent.parent / "templates"
+TEMPLATES_DIR = Path(__file__).parent / "templates"
 
 
 def _site_context(_request: Request) -> dict[str, Any]:

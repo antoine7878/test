@@ -1,0 +1,30 @@
+<!-- {% extends "base.html" %} -->
+<!---->
+<!-- {% block content %} -->
+<!-- <h1>{{ project_name }}</h1> -->
+<!-- <button hx-get="/partials/time" hx-target="#time">What time is it?</button> -->
+<!-- <p id="time"></p> -->
+<!-- {% endblock %} -->
+
+{% extends "auth_base.html" %}
+{% block content %}
+<h1 class="auth-title">Welcome to Ecovamed</h1>
+<p class="auth-subtitle">Log in with the data that you entered during your registration</p>
+
+<div class="auth-notice">
+  <strong>Ecovamed has a new website.</strong>
+  If you had an account on the previous site, your password needs to be changed:
+  <a href="{% url 'password_reset' %}">choose a new password</a>.
+</div>
+
+<form method="post" class="auth-form">{% csrf_token %}
+  {% include "registration/field.html" with field=form.username %}
+  {% include "registration/field.html" with field=form.password %}
+  <label class="checkbox">{{ form.keep_logged }}<span class="checkbox-box"></span>{{ form.keep_logged.label }}</label>
+  {% if form.non_field_errors %}<p class="form-error">Incorrect email or password. Account from the previous site? <a href="{% url 'password_reset' %}">Choose a new password</a>.</p>{% endif %}
+  <input type="hidden" name="next" value="{{ next }}">
+  <button type="submit" class="btn">Log In</button>
+</form>
+<a class="auth-link" href="{% url 'password_reset' %}">Forgot password ?</a>
+<a class="auth-link" href="{% url 'signup' %}">No account yet? Sign up</a>
+{% endblock %}
