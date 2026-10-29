@@ -10,9 +10,9 @@ repos:
         args:
           - --unsafe
       - id: end-of-file-fixer
-        exclude: ^src/(email-templates|static/js)/.*
+        exclude: ^src/(email-templates|web/static/js)/.*
       - id: trailing-whitespace
-        exclude: ^src/static/js/.*
+        exclude: ^src/web/static/js/.*
   - repo: https://github.com/crate-ci/typos
     rev: 00f422f3b19c57bc6338715ebfe3316d38768461 # frozen: v1.50.3
     hooks:

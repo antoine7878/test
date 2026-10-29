@@ -5,7 +5,7 @@ description = ""
 requires-python = ">=3.14,<4.0"
 dependencies = [
     "fastapi[standard]>=0.141.1,<1.0.0",
-    "python-multipart<1.0.0,>=0.0.27",
+    "python-multipart>=0.0.27,<1.0.0",
     "email-validator<3.0.0.0,>=2.1.0.post1",
     "pydantic>=2.13.5",
     "emails>=1.1.2,<2.0",
@@ -18,6 +18,8 @@ dependencies = [
     "sentry-sdk[fastapi]>=2.70.0,<3.0.0",
     "pyjwt>=2.15.0,<3.0.0",
     "pwdlib[argon2,bcrypt]>=0.3.1",
+    "sqladmin>=0.32.0",
+    "sqlalchemy[asyncio]>=2.0",
 ]
 
 [dependency-groups]
@@ -38,6 +40,7 @@ packages = ["src"]
 
 [tool.ruff]
 target-version = "py314"
+line-length = 120
 exclude = ["alembic"]
 
 [tool.ruff.lint]
@@ -78,7 +81,7 @@ show_contexts = true
 error-on-warning = true
 
 [tool.typos.files]
-extend-exclude = ["uv.lock", "htmlcov/", "src/static/js/"]
+extend-exclude = ["uv.lock", "htmlcov/", "src/web/static/js/"]
 
 [tool.typos.default.extend-identifiers]
 alls = "alls"
